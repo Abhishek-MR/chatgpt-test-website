@@ -1,0 +1,260 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reshma and Abhishek's Wedding</title>
+  <!-- Link to Material Design icons and fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Link to Roboto font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+  <!-- Link to Dancing Script font -->
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+  <!-- Link to Playfair Display font -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+  <!-- Link to Materialize CSS framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Link to AOS CSS library for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <!-- Link to Slick CSS library for carousel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <!-- Custom CSS styles -->
+  <style>
+    /* Set the background image for the landing page */
+    .landing {
+      background: url("https://image.freepik.com/free-vector/indian-wedding-invitation-card-with-floral-design_1017-31297.jpg") no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+    }
+
+    /* Set the color and font size for the countdown timer */
+    .countdown {
+      color: white;
+      font-size: 3rem;
+    }
+
+    /* Set the color and font size for the names of the couple */
+    .names {
+      color: white;
+      font-size: 5rem;
+      font-weight: bold;
+      /* Use the Dancing Script font */
+      font-family: 'Dancing Script', cursive;
+    }
+
+    /* Set the color and font size for the subtitle */
+    .subtitle {
+      color: white;
+      font-size: 2rem;
+    }
+
+    /* Set the color and font size for the date */
+    .date {
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    /* Set the color and font size for the section titles */
+    .section-title {
+      color: #FFD700;
+      font-size: 3rem;
+      font-weight: bold;
+      /* Use the Playfair Display font */
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Set the color and font size fo
+
+    /* Set the color and font size for the section subtitles */
+    .section-subtitle {
+      color: #FFD700;
+      font-size: 2rem;
+    }
+
+    /* Set the background color and text color for the section content */
+    .section-content {
+      background-color: #F0F8FF;
+      color: #00008B;
+    }
+
+    /* Set the color and font size for the footer text */
+    .footer-text {
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    /* Set the color and font size for the social media icons */
+    .social-icons {
+      color: white;
+      font-size: 2rem;
+    }
+
+    /* Add animation to the landing page elements */
+    .landing * {
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Define the fadeIn animation */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    
+  </style>
+</head>
+<body>
+  <!-- Landing page with names and countdown timer -->
+  <div class="landing valign-wrapper">
+    <div class="container center-align">
+      <!-- Names of the couple -->
+      <h1 class="names">Reshma & Abhishek</h1>
+      <!-- Subtitle -->
+      <h2 class="subtitle">Are getting married!</h2>
+      <!-- Date -->
+      <h3 class="date">May 21, 2023</h3>
+      <!-- Countdown timer -->
+      <div class="countdown" id="countdown"></div>
+      <!-- Script to calculate and display the countdown timer -->
+      <script>
+        // Get the wedding date
+        var weddingDate = new Date("May 21, 2023 09:00:00").getTime();
+        // Update the countdown every second
+        var countdown = setInterval(function() {
+          // Get the current date and time
+          var now = new Date().getTime();
+          // Calculate the difference between wedding date and now
+          var difference= weddingDate - now;
+          // Calculate the days, hours, minutes and seconds
+          var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+          // Display the countdown
+          document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+          + minutes + "m " + seconds + "s ";
+          // If the countdown is over, display a message
+          if (difference < 0) {
+            clearInterval(countdown);
+            document.getElementById("countdown").innerHTML = "The wedding is over!";
+          }
+        }, 1000);
+      </script>
+    </div>
+  </div>
+  
+  <!-- Section with details of bride and groom -->
+  <div class="section">
+    <div class="container center-align">
+      <!-- Section title -->
+      <h3 class="section-title" data-aos="fade-right">Meet the Couple</h3>
+      <!-- Section subtitle -->
+      <h4 class="section-subtitle" data-aos="fade-left">A little bit about us</h4>
+      <!-- Row with two columns -->
+      <div class="row">
+        <!-- Column for bride -->
+        <div class="col s12 m6">
+          <!-- Image of bride -->
+          <img src="reshma.jpg" alt="Reshma" class="responsive-img circle materialboxed" data-aos="zoom-in">
+          <!-- Name of bride -->
+          <h5 class="names" data-aos="fade-up">Reshma</h5>
+          <!-- Bio of bride -->
+          <p class="flow-text section-content" data-aos="fade-down">Reshma is a software engineer who loves coding, reading and traveling. She met Abhishek at a hackathon and they instantly clicked. She is excited to start a new chapter in her life with him.</p>
+        </div>
+        <!-- Column for groom -->
+        <div class="col s12 m6">
+          <!-- Image of groom -->
+          <img src="abhishek.jpg" alt="Abhishek" class="responsive-img circle materialboxed" data-aos="zoom-in">
+          <!-- Name of groom -->
+          <h5 class="names" data-aos="fade-up">Abhishek</h5>
+          <!-- Bio of groom -->
+          <p class="flow-text section-content" data-aos="fade-down">Abhishek is a data analyst who enjoys crunching numbers, playing chess and watching movies. He fell in love with Reshma's intelligence and sense of humor. He can't wait to marry his best friend and soulmate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section with venue details -->
+  <div class="section">
+    <div class="container center-align">
+      <!-- Section title -->
+      <h3 class="section-title" data-aos="fade-right">The Venue</h3>
+      <!-- Section subtitle -->
+      <h4 class="section-subtitle" data-aos="fade-left">Where and when</h4>
+      <!-- Row with two columns -->
+      <div class="row">
+        <!-- Column for wedding venue -->
+        <div class="col s12 m6 offset-m3">
+          <!-- Image of wedding venue -->
+          <img src="pgm.jpg" alt="PGM Shreegandha Palace" class="responsive-img" data-aos="zoom-in">
+          <!-- Name of wedding venue -->
+          <h5 class="names" data-aos="fade-up">PGM Shreegandha Palace</h5>
+          <!-- Address of wedding venue -->
+          <p class="flow-text section-content" data-aos="fade-down">No. 1/1, 80 Feet Road, Near BEL Circle, Vidyaranyapura Post, Bengaluru - 560097</p>
+          <!-- Google map of wedding venue -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9067156!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" data-aos="fade-up"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section with gallery -->
+  <div class="section">
+    <div class="container center-align">
+      <!-- Section title -->
+      <h3 class="section-title" data-aos="fade-right">Gallery</h3>
+      <!-- Section subtitle -->
+      <h4 class="section-subtitle" data-aos="fade-left">Some of our memories</h4>
+      <!-- Row with four columns -->
+      <div class="row">
+        <!-- Column for first image -->
+        <div class="col s12 m3">
+          <!-- Image of the couple -->
+          <img src="couple1.jpg" alt="Couple" class="responsive-img materialboxed" data-aos="zoom-in">
+        </div>
+        <!-- Column for second image -->
+        <div class="col s12 m3">
+          <!-- Image of the couple -->
+          <img src="couple2.jpg" alt="Couple" class="responsive-img materialboxed" data-aos="zoom-in">
+        </div>
+        <!-- Column for third image -->
+        <div class="col s12 m3">
+          <!-- Image of the couple -->
+          <img src="couple3.jpg" alt="Couple" class="responsive-img materialboxed" data-aos="zoom-in">
+        </div>
+        <!-- Column for fourth image -->
+        <div class="col s12 m3">
+          <!-- Image of the couple -->
+          <img src="couple4.jpg" alt="Couple" class="responsive-img materialboxed" data-aos="zoom-in">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer with invitation and social media icons -->
+  <footer class="page-footer black center-align">
+    <div class="container">
+      <!-- Footer text -->
+      <p class="footer-text">We are honored to have you as our guest on our special day. Please join us for a night of celebration and joy.</p>
+      <!-- Social media icons -->
+      <p class="social-icons"><i class="material-icons">facebook</i> <i class="material-icons">instagram</i> <i class="material-icons">twitter</i></p>
+    </div>
+  </footer>
+
+  <!-- Link to jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Link to Materialize JS framework -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Link to AOS JS library for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- Script to initialize the materialbox component for the gallery images -->
+  <script>
+    $(document).ready(function(){
+      $('.materialboxed').materialbox();
+    });
+  </script>
+  <!-- Script to initialize the AOS library for animations -->
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
